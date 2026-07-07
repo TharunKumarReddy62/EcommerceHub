@@ -1,27 +1,38 @@
 package com.project.EcommerceHub.model;
 
-public class Category {
-    String CategoryName;
-    Long CategoryId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-    public Category(String CategoryName, Long CategoryId) {
-        this.CategoryName = CategoryName;
-        this.CategoryId = CategoryId;
+@Entity(name = "categories")
+public class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long categoryId;
+    String categoryName;
+
+    public Category() {
+
+    }
+    public Category(String categoryName, Long categoryId) {
+        this.categoryName = categoryName;
+        this.categoryId = categoryId;
 
     }
     public String getCategoryName() {
-        return CategoryName;
+        return categoryName;
     }
 
     public void setCategoryName(String categoryName) {
-        CategoryName = categoryName;
+        this.categoryName = categoryName;
     }
 
     public Long getCategoryId() {
-        return CategoryId;
+        return categoryId;
     }
 
     public void setCategoryId(Long categoryId) {
-        CategoryId = categoryId;
+        this.categoryId = categoryId;
     }
 }
